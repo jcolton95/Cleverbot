@@ -1,6 +1,6 @@
-#Idea Sheet
+# Idea Sheet
 
-####Brainstorm: April 18, 2017
+#### Brainstorm: April 18, 2017
 
 ### Shapes
 - Two gradually shifting, gradating color fields to correspond with each bot
