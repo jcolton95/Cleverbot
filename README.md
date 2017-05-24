@@ -1,4 +1,5 @@
 # Cleverbot
-Hello Elias, good evening, I am cleverbot_Jack
 
-Hello Jack, good evening, I am cleverbot_Elias
+## Setup
+
+Create a file `api_key.pde` in the processing folder that has the line: `String APIKEY = "yourApiKeyHere";`
