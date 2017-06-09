@@ -60,7 +60,7 @@ class Reaction {
     if(isFirst) {
        x_initial = width;
        y_initial = height;
-       r = width - r;
+       //r = width - r;
     }
     float theta = (reactionDegree * 90 / 80.0) * PI / 180;
     
@@ -74,7 +74,7 @@ class Reaction {
     strokeWeight(1);
     pushMatrix();
     
-//    rotate(theta);
+    rotate(theta);
     translate(50, 50);
     line(x_initial, y_initial, r, 0);
     
