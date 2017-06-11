@@ -10,7 +10,6 @@ colorbar2 cb2;
 //int previous_index;
 
 int rd = (int)random(0, 100); //reactionDegree
-int ed = cb2.
 
 
 void setup() {
