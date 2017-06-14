@@ -24,7 +24,7 @@ class Reaction {
       isFirst = false;
     }
     
-    reaction = resp.getString("reaction");
+    reaction = trim(resp.getString("reaction"));
     //println("reaction:", reaction);
     
     if(reaction.length() > 0){

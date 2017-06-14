@@ -5,13 +5,13 @@ void setup1() {
   cb = new colorbar (127, 0, 127, 255, -20, 0);
 }
 
-
+Reaction currReaction;
 void draw1() {
-  if (count > 1) {
+  if (count > 2) {
     int size = reactionsList.size();
-    Reaction currReaction = reactionsList.get(size-1);
+    currReaction = reactionsList.get(size-1);
     //println(currReaction.emotionDegree);
-    cb.updateEmotionDegree(currReaction.emotionDegree);
+    //cb.updateEmotionDegree(currReaction.emotionDegree);
   }
   cb.move();
   cb.screenwrap();
@@ -21,10 +21,13 @@ void draw1() {
 
 void newResponse() {
   if (cb.x < -19) {
+    if(count > 2) {
+      cb.updateColorFromReaction(currReaction.reaction);
+    }
+    
     JSONObject resp = getResponse(prevOutput, prevCs);
     Reaction newReaction = new Reaction(resp, count);
-
-
+    
     newReaction.print();
     totalReactionTone += newReaction.reactionTone;
 
@@ -37,6 +40,8 @@ void newResponse() {
     prevCs = cs;
 
     count++;
+
+
   }
 }
 

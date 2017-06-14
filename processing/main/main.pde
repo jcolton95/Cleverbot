@@ -14,6 +14,12 @@ void setup() {
   size(500, 500);
   background(255);
   setup1();
+
+  String testInput = "      agreement  ";
+  //testInput = testInput.trim();
+  //println(testInput, testInput.equals("agreement"));
+  String testOut = getEmotionCategory(testInput);
+  println(testInput + " is in category: ", testOut);
 }
 
 void draw() {
