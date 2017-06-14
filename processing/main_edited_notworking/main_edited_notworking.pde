@@ -1,3 +1,5 @@
+//main
+
 String initInput = "hello";
 
 String prevOutput = initInput;
@@ -18,9 +20,8 @@ void setup() {
 
 void draw() {
   draw1();
-  newResponse();
 }
 
 void mouseClicked() {
-  //mouseClick1();
+  mouseClick1();
 }

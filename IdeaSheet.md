@@ -33,3 +33,9 @@ like a crystalline shifting membrane behind these two talking clouds: [Like this
 
 
 - background starts as one color then splits into two, and keeps adding a color for every interaction.
+
+
+#### June 11, 2017
+
+- random images being drawn up by one bot, then tinted in response by the other bot - red for higher values, blue for lower values (0 green value?); or scribble over or circling certain parts based on emotion -- like an absent-minded activity being done while the two talk -- like an automatic writing exercise?
+- have a databse of images, each labeled simply and descriptively (image of cat would be cat.jpg etc.), have the name of each be sent to the API as a response when it is called up, thus launching a conversation from the subject of the image. Each subsequent response would then direct a sort of line drawing on the image, very rough, like circling something or scribbling on it. Stupid automatic drawing while talking.

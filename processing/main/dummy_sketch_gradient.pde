@@ -3,10 +3,9 @@
 
 
 colorbar cb;
-colorbar2 cb2;
 
 //ArrayList reactions;
 //int reaction_index;
 //int previous_index;
 
-int rd = (int)random(0, 100); //reactionDegree
+int rd = (int)random(0, 255); //reactionDegree
