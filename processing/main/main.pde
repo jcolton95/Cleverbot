@@ -14,7 +14,8 @@ void setup() {
   //size(500, 500);
   size(1780,1000);
   background(255);
-  setup1();
+  //setup1();
+  setup2();
 
   String testInput = "      agreement  ";
   //testInput = testInput.trim();
@@ -24,7 +25,6 @@ void setup() {
 }
 
 void draw() {
-  background(255);
   //draw1();
   draw2();
   //newResponse();

@@ -1,16 +1,23 @@
 colorbar cb;
 colorbar cb2;
 
-noisyline nl;
-
 void setup1() {
   smooth();
-
   cb = new colorbar(127, 0, 127, 127, -20, 0, 100);
   cb2 = new colorbar(127, 0, 127, 127, -20, width/2, 100);
-  
-  nl = new noisyline (50, height/2, 50, random(10), 0.1, 10, 5, 20, 50, 70);
 }
+
+
+noisyline nl;
+wave wave;
+
+void setup2() {
+  smooth();
+  //nl = new noisyline(50/*border*/, height/2/*yaxis*/, 50/*yamplitude*/, random(10)/*ynoise*/, 0/*ynoisestep*/, 10 /*anglepower*/, 1, 10, 5, 20, 50, 70);
+  //(border, yaxis, yamplitude, ynoise, ynoisestep, anglestep, anglepower, step, strokeweight, red, green, blue)
+  wave = new wave(0.1, height/2, 50, 10, 50, 1);
+}
+
 
 Reaction currReaction;
 
@@ -29,9 +36,13 @@ void draw1() {
   cb2.display();
 }
 
+
 void draw2() {
-  nl.display();
+  background(255);
+  //nl.display();
+  wave.display(0.02);
 }
+
 
 void newResponse() {
   if (cb.x < -19) {
