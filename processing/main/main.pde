@@ -11,7 +11,8 @@ ArrayList<Reaction> reactionsList = new ArrayList<Reaction>();
 //Reaction currReaction = new Reaction(getResponse(initInput, ""), 0);
 
 void setup() {
-  size(500, 500);
+  //size(500, 500);
+  size(1780,1000);
   background(255);
   setup1();
 
@@ -23,8 +24,10 @@ void setup() {
 }
 
 void draw() {
-  draw1();
-  newResponse();
+  background(255);
+  //draw1();
+  draw2();
+  //newResponse();
 }
 
 void mouseClicked() {

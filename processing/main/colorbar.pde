@@ -12,16 +12,19 @@ class colorbar {
 
   float noiseScale = random(0.01,1);
 
-  colorbar (int tempRed, int tempGreen, int tempBlue, int tempAlpha, float tempX, float tempY) {
+  colorbar (int tempRed, int tempGreen, int tempBlue, int tempAlpha, float tempX, float tempY, float tempPace) {
     r = tempRed;
     g = tempGreen;
     b = tempBlue;
     a = tempAlpha;
     x = tempX;
     y = tempY;
+    p = tempPace;
   }
 
   void move() {
+    //float paceNoiseVal = noise(x*noiseScale);
+    //x = x + paceNoiseVal*p;
     x++;
   }
 
@@ -33,9 +36,10 @@ class colorbar {
   }
 
   void display() {
-    for (int h = 0; h <= height; h+=1) {
-      float noiseVal = noise(x*noiseScale, y*noiseScale);
-      fill(r/noiseVal, g, b/noiseVal, a);
+    noStroke();
+    for (int h = 0; h <= height/2; h+=1) {
+      float colorNoiseVal = noise(x*noiseScale, y*noiseScale);
+      fill(r/colorNoiseVal, g/colorNoiseVal, b/colorNoiseVal, a);
       rect(x, y+h, 5, 1);
     }
   }
