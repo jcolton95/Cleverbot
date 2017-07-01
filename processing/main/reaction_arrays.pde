@@ -123,7 +123,8 @@ String [] angerList = {
 };
 
 String [] disgustList = {
-  "eek!", 
+  "eek!",
+  "eek",
   "hatred", 
   "disgust", 
   "sneering", 
@@ -145,7 +146,8 @@ String [] responseCategories = {"like", "love", "laughing", "surprise", "sad", "
 // returns the index if found, -1 if not
 int findInArray(String input, String[] arr) {
   for (int i = 0; i < arr.length; i++) {
-    if (input.trim().equals(arr[i])) {
+    //println("Comparing " + input + " with " + arr[i]);
+    if (input.trim().equals(arr[i].trim())) {
       return i;
     }
   }
@@ -156,9 +158,52 @@ int findInArray(String input, String[] arr) {
 // categories are: like, love, laughing, surprise, sad, anger, disgust
 String getEmotionCategory(String input) {
   for (int i = 0; i < responseLists.length; i++) {
-   if (findInArray(input, responseLists[i]) >= 0) {
-     return responseCategories[i];
+    if (findInArray(input, responseLists[i]) >= 0) {
+      return responseCategories[i];
    }
   }
   return input + " WAS NOT FOUND";
+}
+
+color getColorForEmotionCategory(String input) {
+  int r = 0;
+  int g = 0;
+  int b = 0;
+  if (input == "anger") {
+    r = 175;
+    g = 7;
+    b = 7;
+  }
+  if (input == "sad") {
+    r = 145;
+    g = 169;
+    b = 242;
+  }
+  if (input == "love") {
+    r = 255;
+    g = 0;
+    b = 106;
+  }
+  if (input == "disgust") {
+    r = 77;
+    g = 170;
+    b = 37;
+  }
+  if (input == "like") {
+    r = 115;
+    g = 239;
+    b = 146;
+  }
+  if (input == "laughing") {
+    r = 255;
+    g = 255;
+    b = 22;
+  }
+  if (input == "surprise") {
+    r = 255;
+    g = 170;
+    b = 10;
+  }
+  return(color(r, g, b));
+  
 }
