@@ -141,9 +141,10 @@ String [] disgustList = {
 String [] [] responseLists = {likeList, loveList, laughingList, surpriseList, sadList, angerList, disgustList};
 String [] responseCategories = {"like", "love", "laughing", "surprise", "sad", "anger", "disgust"};
 
+// finds input in the given array arr
+// returns the index if found, -1 if not
 int findInArray(String input, String[] arr) {
   for (int i = 0; i < arr.length; i++) {
-    //println(arr[i]); 
     if (input.trim().equals(arr[i])) {
       return i;
     }
@@ -151,6 +152,8 @@ int findInArray(String input, String[] arr) {
   return -1;
 }
 
+// returns the emotion cateogry for the given input
+// categories are: like, love, laughing, surprise, sad, anger, disgust
 String getEmotionCategory(String input) {
   for (int i = 0; i < responseLists.length; i++) {
    if (findInArray(input, responseLists[i]) >= 0) {

@@ -1,66 +1,60 @@
+// Initial thing to start the conversation
+String initInput = "hello";
+
+String prevOutput = initInput;
+String prevCs = "";
+
+int totalReactionTone = 0;
+
+// list to hold the reactions
+ArrayList<Reaction> reactionsList = new ArrayList<Reaction>();
+
+Reaction currReaction;
+colorbar cb;
+
 void setup1() {
   smooth();
   noStroke();
-
-  cb = new colorbar (127, 0, 127, 255, -20, 0);
+  cb = new colorbar (127, 0, 127, 255, 5, 0);
 }
 
-Reaction currReaction;
 void draw1() {
-  if (count > 2) {
-    int size = reactionsList.size();
+  int size = reactionsList.size();
+  if (size > 1) {
     currReaction = reactionsList.get(size-1);
-    //println(currReaction.emotionDegree);
-    //cb.updateEmotionDegree(currReaction.emotionDegree);
   }
+  
   cb.move();
-  cb.screenwrap();
   cb.display();
+  
+  // get new response if at the begining
+  if (cb.x <= cb.xBuffer * -1) {
+    newResponse();
+  }
 }
-
 
 void newResponse() {
-  if (cb.x < -19) {
-    if(count > 2) {
-      cb.updateColorFromReaction(currReaction.reaction);
-    }
-    
-    JSONObject resp = getResponse(prevOutput, prevCs);
-    Reaction newReaction = new Reaction(resp, count);
-    
-    newReaction.print();
-    totalReactionTone += newReaction.reactionTone;
+  println("===============");
 
-    reactionsList.add(newReaction);
-
-    String output = resp.getString("output");
-    String cs = resp.getString("cs");
-
-    prevOutput = output;
-    prevCs = cs;
-
-    count++;
-
-
-  }
-}
-
-
-void mouseClick1() {
   JSONObject resp = getResponse(prevOutput, prevCs);
-  Reaction newReaction = new Reaction(resp, count);
-
-
-  newReaction.print();
-  totalReactionTone += newReaction.reactionTone;
-
+  Reaction newReaction = new Reaction(resp, reactionsList.size());
   reactionsList.add(newReaction);
+  
+  newReaction.print();
+  if(reactionsList.size() > 1) {
+    cb.updateColorFromReaction(newReaction.reaction);
+  }
+  
+  totalReactionTone += newReaction.reactionTone;
 
   String output = resp.getString("output");
   String cs = resp.getString("cs");
 
   prevOutput = output;
   prevCs = cs;
+}
 
-  count++;
+
+void mouseClick1() {
+ 
 }

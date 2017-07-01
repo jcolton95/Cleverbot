@@ -1,5 +1,8 @@
+/*
+  A bar of color that moves across the screen, leaving a path of color.
+*/
 class colorbar {
-
+  int xBuffer;
   float r; // red
   float g; // green
   float b; // blue
@@ -7,29 +10,31 @@ class colorbar {
   float x;
   float y;
 
-  int d; // direction
+  int d;   // direction
   float p; // pace
 
   float noiseScale = random(0.01,1);
 
-  colorbar (int tempRed, int tempGreen, int tempBlue, int tempAlpha, float tempX, float tempY) {
+  colorbar (int tempRed, int tempGreen, int tempBlue, int tempAlpha, int tempXBuffer, float tempY) {
     r = tempRed;
     g = tempGreen;
     b = tempBlue;
     a = tempAlpha;
-    x = tempX;
+    xBuffer = tempXBuffer;
+    x = tempXBuffer * -1;
     y = tempY;
   }
 
   void move() {
     x++;
+    if (x > width + xBuffer) {
+      screenwrap(); 
+    }
   }
 
   void screenwrap() {
-    if (x > width + 20) {
-      x = -20;
-      noiseScale = noiseScale + random(-r, r);
-    }
+    x = -1 * xBuffer;
+    noiseScale = noiseScale + random(-r, r);
   }
 
   void display() {
@@ -43,7 +48,7 @@ class colorbar {
   // updates the color based on the reaction description
   void updateColorFromReaction(String input) {
 
-     // gets broad category from reaction
+    // gets category from reaction
     String emotionCategory = getEmotionCategory(input);
     
     println("updating color", emotionCategory);
@@ -81,19 +86,6 @@ class colorbar {
       r = 255;
       g = 170;
       b = 10;
-    }
-  }
-  
-  void updateEmotionDegree (int d) {
-    if (x < -19) {
-      int i = d - 50;
-      r = r + i;
-      if (r < 0) {
-        r = 0;
-      }
-      if (r > 255) {
-        r = 255;
-      }
     }
   }
 }

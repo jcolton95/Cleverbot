@@ -1,14 +1,18 @@
+/*
+  Contains relevant data for a single reaction
+*/
+
 class Reaction {
   
   String cs;
   String output;
   
-  String reaction = "";
-  int reactionTone = 0;
-  int reactionDegree = 0;
-  String reactionValues = "";
-  int emotionDegree = 0;
-  String emotionValues = "";
+  String  reaction = "";
+  int     reactionTone = 0;
+  int     reactionDegree = 0;
+  String  reactionValues = "";
+  int     emotionDegree = 0;
+  String  emotionValues = "";
   
   int id = 0;
   boolean isFirst = true;
