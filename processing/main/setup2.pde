@@ -1,7 +1,7 @@
 
 void setup2() {
   smooth();
-  wave = new wave(0.1, height/2, 50, 10, 50, 1);
+  //wave = new Wave(0.1, height/2, 50, 10, 50, 1);
 }
 
 

@@ -21,9 +21,12 @@ class ConversationHistory {
     float newR = (red(col) + red(averageColor)) / colors.size();
     float newG = (green(col) + green(averageColor)) / colors.size();
     float newB = (blue(col) + blue(averageColor)) / colors.size();
-    println("curr avg:", red(averageColor), green(averageColor), blue(averageColor));
-
-    println(newR, newG, newB);
+    
+    //float newH = (hue(col) + hue(averageColor)) / colors.size();
+    
+    //println("curr avg:", red(averageColor), green(averageColor), blue(averageColor));
+    //println(newR, newG, newB);
+    
     averageColor = color(newR, newG, newB);
     drawAverage();
   }
@@ -49,6 +52,7 @@ class ConversationHistory {
   }
 
   void drawAverage() {
+    noStroke();
     fill(255,255,255);
 
     fill(averageColor);

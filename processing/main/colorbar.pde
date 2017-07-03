@@ -44,7 +44,7 @@ class Colorbar {
     noStroke();
     int maxHeight = height/2;
     
-    for (int h = 0; h <= maxHeight; h++) {
+    for (int h = 0; h <= maxHeight - 1; h++) {
       float colorNoiseVal = noise(x*noiseScale, y*noiseScale);
       //fill(r/colorNoiseVal, g/colorNoiseVal, b/colorNoiseVal, a);
       
