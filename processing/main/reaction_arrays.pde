@@ -49,6 +49,7 @@ String [] loveList = {
 
 String [] laughingList = {
   "ha!", 
+  "ha",
   "nice laugh", 
   "nasty laugh", 
   "giggling", 

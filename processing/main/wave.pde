@@ -7,77 +7,62 @@ class Wave {
 
   float startAngle;
   float angleVel;
-  //float yaxis;
-  float yamplitude;
-  int anglepower;
-  float border;
-  float step;
-  float stepAddAmount = 0.0005;
-  
-  float rDeg = 0;
-  
+
+  float step = 1;
+  float stepAddAmount = 0.001;
+
+  int opacity = 40;
   boolean isVertical = false;
 
-  Wave(int tempX, int tempY, int tempW, int tempH, float tempAngleVel, float tempYAmplitude, int tempAnglePower, float tempBorder, float tempStep) {
+  String dataName = "";
+  
+  Wave(int tempX, int tempY, int tempW, int tempH, float tempAngleVel, String tempDataName) {
 
     x = tempX;
     y = tempY;
     w = tempW;
     h = tempH;
 
-    fill(255);
-    rect(x, y, w, h);
-
     angleVel = tempAngleVel;
-    //yaxis = tempYAxis;
-    yamplitude = tempYAmplitude;
-    anglepower = tempAnglePower;
-    border = tempBorder;
-    step = tempStep;
+    dataName = tempDataName;
   }
 
 
   void display(float tempStartAngle) {
-    //clear();
-    //background(255);
+
     //[full] In order to move the wave, we start at a different theta value each frame.  startAngle += 0.02;
-    fill(20, 50);
+
+    fill(5, opacity);
     noStroke();
     rect(x, y, w, h);
-
+    
     startAngle += tempStartAngle;
     float angle = startAngle;
 
-    //[end]
-
     float lastx = -999;
     float lasty = -999;
-    
-    float targetDeg = 2 * currReaction.reactionDegree / 100.0;
-    
-    if(targetDeg > step) {
-      step += stepAddAmount;
 
+    float targetDeg;
+    if (dataName == "ed") {
+      targetDeg = 2 * currReaction.emotionDegree / 100.0;
+    } else {
+      targetDeg = 2 * currReaction.reactionDegree / 100.0;
+    }
+
+    if (targetDeg > step) {
+      step += stepAddAmount;
     } else {
       step -= stepAddAmount;
     }
-    
-    float newStep = step * rDeg;
-    
-    for (float xPos = x; xPos <= w; xPos += step) {
+
+    for (float xPos = x; xPos <= w; xPos += step * 2) {
       //float rad = radians(angle);
-
-      //println(rDeg);
       //float y = map(sin(angle), -1, 1, 0, height); //standard sine
-      float yPos = map(sin(angle), -1, 1, h, 0) + (height - h); //noise with sine
+      float yPos = map(sin(angle), -1, 1, h-1, 1) + (height - (height - y)); //noise with sine
 
-      //stroke(0);
-      //fill(0, 50);
-      //stroke( random(255), random(255), random(255), random(255)); 
-
-      stroke(cb.getColor());
+      //stroke(cb.getColor());
+      stroke(255);
       strokeWeight(2);
-
 
       if (lastx > -999) {
         if (isVertical) {
@@ -91,5 +76,14 @@ class Wave {
       lasty = yPos;
       angle += angleVel;
     }
+    
+
+  }
+  float getStep () {
+    return step;
+  }
+  
+  float getAngle() {
+   return startAngle;
   }
 }

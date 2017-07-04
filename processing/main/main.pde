@@ -1,5 +1,6 @@
 void setup() {
-  size(400, 400);
+  size(400, 700);
+  //frameRate(60);
   //fullScreen();
   background(255);
   setup1();

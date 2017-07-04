@@ -14,6 +14,9 @@ class ConversationHistory {
     canvasHeight = h;
     canvasStartX = x;
     canvasStartY = y;
+    
+    fill(0);
+    rect(x, y, w, h);
   }
 
   void addColor(color col) {
